@@ -1,0 +1,117 @@
+/* Colors */
+:root {
+  --white: #ffffff;
+  --turquoise: #3DBABA;
+  --powder-blue:#87AEAF;
+  --alice-blue:#D7EFF7;
+  --anti-flash-white:#F6F9FD;
+  --oxford-blue:#011529;
+  --aquamarine: #7FFFD4;
+  --payne-gray:#607080;
+  --prussian-blue:#082E47;
+  --rich-black:#03101C;
+  --brand: var(--turquoise);
+  --fg:var(--oxford-blue);
+  --fg-1:var(--rich-black);
+  --fg-2:var(--prussian-blue);
+  --dark: var(--oxford-blue);
+  --light: var(--white);
+  --bg: var(--white);
+  --bg-1:var(--alice-blue);
+  --bg-2:var(--anti-flash-white);
+  --neutral: var(--powder-blue);
+  --tone-1: var(--turquoise);
+  --tone-2: var(--aquamarine);
+}
+
+.fbottom, .ll {
+  fill: none;
+}
+
+.fbottom {
+  stroke-width: inherit;
+  stroke: var(--neutral);
+  stroke-opacity: 0.3;
+}
+
+.ll {
+  stroke: var(--brand);
+  animation: loop 3s linear infinite;
+  stroke-width: 0.35;
+  stroke-dasharray: 3 24.5;
+  stroke-linecap: round;
+}
+
+.finny {
+  stroke-width: 1.43;
+  animation: rot 36s linear infinite;
+}
+
+.shad {
+  animation: raise 3s linear infinite;
+}
+
+.shad.odd {
+  animation-delay: -1.5s;
+}
+
+@keyframes raise {
+  0%, 20% {
+    opacity: 1;
+  }
+  30%, 70% {
+    opacity: 0;
+  }
+  80%, 100% {
+    opacity: 1;
+  }
+}
+.ll {
+  animation-delay: -1.5s;
+}
+
+.finny {
+  perspective: 500px;
+}
+
+@keyframes loop {
+  0% {
+    stroke-dashoffset: 0.5;
+  }
+  100% {
+    stroke-dashoffset: 28;
+  }
+}
+.clip-shadow {
+  stroke-linecap: butt;
+  fill: none;
+  opacity: 0.3;
+  stroke-width: inherit;
+  stroke: url(#sgrad);
+}
+
+#sgrad stop {
+  stop-color: var(--bg-3);
+}
+
+@media (prefers-color-scheme: light) {
+  #sgrad stop {
+    stop-color: #2345;
+  }
+}
+/* just for demo */
+body {
+  background-color: var(--fg);
+  display: grid;
+  height: 100vh;
+  place-content: center;
+  width: 100vw;
+  overflow: hidden;
+  margin: 0;
+}
+
+svg {
+  width: 90vw;
+  height: 70vh;
+  display: block;
+}
